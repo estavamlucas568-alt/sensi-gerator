@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensi Gerator</title>
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#4b0082,#000);
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+
+.app{
+  background:#12001f;
+  width:340px;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 0 25px rgba(170,0,255,.6);
+}
+
+h1{
+  text-align:center;
+  color:#c77dff;
+}
+
+label{
+  font-size:14px;
+  margin-top:10px;
+  display:block;
+}
+
+select, button{
+  width:100%;
+  padding:10px;
+  margin-top:6px;
+  border:none;
+  border-radius:10px;
+}
+
+button{
+  background:#7b2cff;
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.result{
+  background:#000;
+  margin-top:15px;
+  padding:10px;
+  border-radius:10px;
+  font-size:13px;
+  white-space:pre-line;
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+  <h1>Sensi Gerator</h1>
+
+  <label>Modelo do celular</label>
+  <select id="modelo">
+    <option>Samsung</option>
+    <option>Redmi</option>
+    <option>Poco</option>
+    <option>Motorola</option>
+    <option>iPhone</option>
+  </select>
+
+  <label>Sensibilidade</label>
+  <select id="sensi">
+    <option>Baixa</option>
+    <option>Média</option>
+    <option>Alta</option>
+  </select>
+
+  <label>DPI</label>
+  <select id="dpi">
+    <option>Sem DPI</option>
+    <option>DPI Baixa</option>
+    <option>DPI Média</option>
+    <option>DPI Alta</option>
+  </select>
+
+  <button onclick="gerar()">Gerar sensi</button>
+
+  <div class="result" id="resultado">
+    Aguardando geração...
+  </div>
+</div>
+
+<script>
+function gerar(){
+  let modelo = document.getElementById("modelo").value;
+  let sensi = document.getElementById("sensi").value;
+  let dpi = document.getElementById("dpi").value;
+
+  let texto =
+  "Jogo: Free Fire\n" +
+  "Modelo: " + modelo + "\n" +
+  "Sensi: " + sensi + "\n" +
+  "DPI: " + dpi + "\n\n" +
+  "Geral: 90\n" +
+  "Mira Red Dot: 85\n" +
+  "Mira 2x: 75\n" +
+  "Mira 4x: 65\n" +
+  "Mira AWM: 55\n" +
+  "Botão de atirar: Médio";
+
+  document.getElementById("resultado").innerText = texto;
+}
+</script>
+
+</body>
+</html>
